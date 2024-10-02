@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meheraz's Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Raleway', sans-serif;
+            background-color: #1f1f1f;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(45deg, #ff6f61, #d45087);
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 3.5em;
+            margin: 0;
+            animation: fadeInDown 1.5s ease-in-out;
+        }
+
+        header p {
+            font-size: 1.5em;
+            margin-top: 15px;
+            animation: fadeInUp 1.5s ease-in-out;
+        }
+
+        nav {
+            background-color: #262626;
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        nav a {
+            color: #ffffff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+        }
+
+        nav a:hover {
+            color: #ff6f61;
+        }
+
+        .container {
+            width: 85%;
+            margin: auto;
+            padding: 50px 0;
+        }
+
+        section {
+            margin-bottom: 60px;
+            padding: 30px;
+            background: #2e2e2e;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease-in-out;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        section.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h2 {
+            border-bottom: 4px solid #ff6f61;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            display: inline-block;
+            font-size: 2em;
+            animation: fadeInLeft 1.5s ease-in-out;
+        }
+
+        #about-me img {
+            float: left;
+            margin-right: 30px;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        #about-me:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            justify-content: center;
+        }
+
+        .skill-item {
+            background: #ff6f61;
+            color: white;
+            padding: 25px;
+            border-radius: 8px;
+            width: calc(25% - 20px);
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .skill-item:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .projects-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-item {
+            background: #444;
+            color: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .project-item:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .achievements-list,
+        .services-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .achievement-item,
+        .service-item {
+            background: #444;
+            color: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .achievement-item:hover,
+        .service-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .contact-info {
+            text-align: center;
+            font-size: 1.2em;
+            color: #ffffff;
+        }
+
+        .contact-info a {
+            color: #ff6f61;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .contact-info a:hover {
+            color: #d45087;
+        }
+
+        footer {
+            background-color: #262626;
+            color: #f1f1f1;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Meheraz's Portfolio</h1>
+        <p>Full Stack Developer - Building engaging and functional web experiences</p>
+    </header>
+
+    <nav>
+        <a href="#about-me">About Me</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#achievements">Achievements</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="container">
+        <section id="about-me">
+            <h2>About Me</h2>
+            <img src="https://via.placeholder.com/180" alt="Meheraz's Photo">
+            <p>Hello, I'm Meheraz, a skilled full-stack web developer. I am passionate about building interactive,
+                user-friendly, and dynamic websites. My goal is to create experiences that blend design and function,
+                pushing the limits of modern web development.</p>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="skills-list">
+                <div class="skill-item">HTML, CSS, JavaScript</div>
+                <div class="skill-item">ReactJS</div>
+                <div class="skill-item">NodeJS</div>
+                <div class="skill-item">MongoDB</div>
+                <div class="skill-item">ExpressJS</div>
+                <div class="skill-item">TailwindCSS</div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="projects-list">
+                <div class="project-item">
+                    <strong>Healthcare Provider Website</strong>
+                    <p>A user-friendly platform connecting patients with healthcare professionals, enabling
+                        appointment bookings and medical consultations online.</p>
+                </div>
+                <div class="project-item">
+                    <strong>Quota Reform Movement Info Portal</strong>
+                    <p>An informative website sharing the latest updates and developments related to the quota reform
+                        movement in Bangladesh.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="achievements">
+            <h2>Achievements</h2>
+            <div class="achievements-list">
+                <div class="achievement-item">
+                    <strong>ICPC Regional Participant</strong>
+                    <p>Participated in the International Collegiate Programming Contest, showcasing my problem-solving
+                        skills.</p>
+                </div>
+                <div class="achievement-item">
+                    <strong>ReactJS Advanced Certification</strong>
+                    <p>Completed an advanced course in ReactJS, focusing on hooks, context, and performance
+                        optimization.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="services">
+            <h2>Services</h2>
+            <div class="services-list">
+                <div class="service-item">
+                    <strong>Web Development</strong>
+                    <p>Building custom, responsive, and dynamic websites using modern technologies like React and
+                        NodeJS.</p>
+                </div>
+                <div class="service-item">
+                    <strong>Frontend Design</strong>
+                    <p>Creating visually appealing and user-centric UI using tools like TailwindCSS and CSS3
+                        animations.</p>
+                </div>
+                <div class="service-item">
+                    <strong>Consultation</strong>
+                    <p>Offering consultation on website development, tech stack selection, and project scalability.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p class="contact-info">Interested in working together? Feel free to reach out via email!</p>
+            <p class="contact-info"><strong>Email:</strong> <a href="mailto:meheraz@example.com">meheraz@example.com</a></p>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2024 Meheraz. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function handleScroll() {
+            const sections = document.querySelectorAll("section");
+            sections.forEach((section) => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (sectionTop < windowHeight - 100) {
+                    section.classList.add("in-view");
+                }
+            });
+        }
+
+        window.addEventListener("scroll", handleScroll);
+        document.addEventListener("DOMContentLoaded", handleScroll);
+    </script>
+</body>
+
+</html>
